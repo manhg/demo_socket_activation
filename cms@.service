@@ -1,0 +1,12 @@
+[Unit]
+Description=cms %i
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/demo/socket_activation/%i
+ExecStart=/usr/bin/python3 -m http.server 90%i
+RuntimeMaxSec=120
+
+[Install]
+WantedBy=multi-user.target

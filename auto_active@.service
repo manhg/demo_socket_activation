@@ -1,0 +1,8 @@
+[Unit]
+# ensure cms is up before proxying
+Requires=cms@%i.service
+After=cms@%i.service
+BindsTo=cms@%i.service
+
+[Service]
+ExecStart=/lib/systemd/systemd-socket-proxyd 127.0.0.1:90%i
