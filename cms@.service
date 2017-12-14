@@ -6,7 +6,11 @@ After=network.target
 Type=simple
 WorkingDirectory=/home/demo/socket_activation/%i
 ExecStart=/usr/bin/python3 -m http.server 90%i
-RuntimeMaxSec=120
+
+# !important! for first start success
+# force socket service wait for starting
+ExecStartPost=/bin/sleep 1
+RuntimeMaxSec=60
 
 [Install]
 WantedBy=multi-user.target
